@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            text-align: center;
+            color: white;
+            background-color: rgb(77, 75, 75);
+            width: 30%;
+            height: 600px;
+            border-radius: 20px;
+        }
+        .box h1{
+            padding-top: 30px;
+        }
+        .n1{
+            align-items: center;
+        }
+        .option1{
+            display: flex;
+            text-wrap: wrap;
+           padding-left: 60px;
+           
+            
+        }
+        .option1 button{
+            display: flex;
+            text-wrap: wrap;
+            text-wrap: wrap;
+            align-items: center;
+            text-align: center;
+            margin:10px;
+            background-color:antiquewhite;
+        }
+        .num{
+            padding-top: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            text-align: center;
+            margin-left: 20px;
+        }
+        .num button{
+            
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="box"><h1>Calculator</h1>
+        <br>
+         <h2>result:<span id= "result"> </span></h2> 
+        <div class="n1">
+            <form >
+                <input  id="num1" onclick="setfocus('num1')" type="number" placeholder="Enter first number" style="width: 50%; height: 30px;">
+            <br><br>
+                <input  id="num2" onclick="setfocus('num2')"type="number" placeholder="Enter second number" style="width: 50%; height: 30px;">
+            </form>
+        </div>
+        <br>
+        <div class="option1">
+            <button onclick="calculator('+')" style="border-radius: 30%; width: 50px; height: 40px;">A+B</button>
+            <button onclick="calculator('-')" style="border-radius: 30%; width: 50px; height: 40px;">A-B</button>
+            <button onclick="calculator('*')" style="border-radius: 30%; width: 50px; height: 40px;">A*B</button>
+            <button onclick="calculator('/')" style="border-radius: 30%; width: 50px; height: 40px;">A/B</button>
+        </div>
+
+        <center>
+        <table>
+        <div class="num">
+            
+            <tr>
+            <th><button onclick="appendnumber('1')" style="border-radius: 50%; width: 50px; height: 40px;">1</button></th>
+            <th><button onclick="appendnumber('2')" style="border-radius: 50%; width: 50px; height: 40px;">2</button> </th>
+            <th> <button onclick="appendnumber('3')" style="border-radius: 50%; width: 50px; height: 40px;">3</button> </th>
+            </tr>
+        <tr>
+            <th><button onclick="appendnumber('4')" style="border-radius: 50%; width: 50px; height: 40px;">4</button> </th>
+            <th> <button onclick="appendnumber('5')" style="border-radius: 50%; width: 50px; height: 40px;">5</button></th>
+            <th>  <button onclick="appendnumber('6')" style="border-radius: 50%; width: 50px; height: 40px;">6</button> </th>
+        </tr>
+        <tr>  
+            <th> <button onclick="appendnumber('7')" style="border-radius: 50%; width: 50px; height: 40px;">7</button>  </th>
+            <th>  <button onclick="appendnumber('8')" style="border-radius: 50%; width: 50px; height: 40px;">8</button></th>
+            <th> <button onclick="appendnumber('9')" style="border-radius: 50%; width: 50px; height: 40px;">9</button> </th>
+        </tr>
+        <tr><th></th>
+            <th> <button onclick="appendnumber('0')"  style="border-radius: 50%; width: 50px; height: 40px;">0</button> </th></tr>
+        </tr>
+                    
+        </div>
+    </table>
+       </center>
+    </div>
+    </center>
+
+     <script>
+        let a="num"
+        function setfocus(inputId){
+         a=inputId //set active input field
+        }
+        function appendnumber(number){
+            document.getElementById(a).value +=number
+        }
+        function calculator(opr){
+           let num1=parseInt(document.getElementById("num1").value)
+           let num2=parseInt(document.getElementById("num2").value)
+           let result
+           switch(opr){
+            case "+": result=num1+num2; break;
+            case "-": result=num1-num2; break;
+            case "*": result=num1*num2; break;
+            case "/":
+                if(num2!=0){
+                    result=num1/num2
+                }
+                else{
+                    result="Cannot divide by zero"
+                } break;
+
+           }
+           console.log("result->"+result)
+           
+           document.getElementById("result").innerHTML=result
+           
+        } 
+        
+    </script>
+
+</body>
+</html>

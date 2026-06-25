@@ -3,134 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Document</title>
     <style>
-        body{
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .calculator{
-            height: auto;
-            width: 70vh;
-            background-color: rgb(28, 26, 26);
+        .box{
+            text-align: center;
+            color: white;
+            background-color: rgb(77, 75, 75);
+            width: 30%;
+            height: 600px;
             border-radius: 20px;
-            padding: 20px;
         }
-        
-        #display{
-            width: 100%;
-            height: 60px;
-            margin-top: 10px;
-            font-size: 2rem;
-            text-align: left;
-            background-color: rgb(67, 64, 64);
-            color: white;
+        .box h1{
+            padding-top: 30px;
         }
-        button{
+        .n1{
+            align-items: center;
+        }
+        .option1{
+            display: flex;
+            text-wrap: wrap;
+           padding-left: 60px;
+           
+            
+        }
+        .option1 button{
+            display: flex;
+            text-wrap: wrap;
+            text-wrap: wrap;
+            align-items: center;
+            text-align: center;
             margin:10px;
-            width: 70px;
-            height: 70px;
-            border-radius: 50px;
-            border: none;
-            background-color: rgb(57, 56, 56);
-            color: white;
-            font-size: 3rem;
-            font-weight: bold;
-            cursor: pointer;
+            background-color:antiquewhite;
         }
-        button:hover{
-            background-color: hsl(0,0%,40%);
+        .num{
+            padding-top: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            text-align: center;
+            margin-left: 20px;
         }
-        button:active{
-            background-color:hsl(0,0%,50%);
-        }
-        .operator-btn{
-            background-color: rgb(244, 140, 36);
-        }
-        table{
-            width: 100%;
+        .num button{
+            
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <center>
-    <div class="calculator">
-        <input id="display" type="text" readonly placeholder="0">
-        <div id="keys">
-            <table>
-                <tr>
-                    <th><button onclick="appendtodisplay('+')" class="operator-btn">+</button></th>
-                    <th><button onclick="appendtodisplay('7')">7</button></th>
-                    <th><button onclick="appendtodisplay('8')">8</button></th>
-                    <th><button onclick="appendtodisplay('9')">9</button></th>
-                </tr>
-                <tr>
-                    <th><button onclick="appendtodisplay('-')" class="operator-btn">-</button></th>
-                    <th><button onclick="appendtodisplay('4')">4</button></th>
-                    <th><button onclick="appendtodisplay('5')">5</button></th>
-                    <th><button onclick="appendtodisplay('6')">6</button></th>
-                </tr>
-                <tr>
-                    <th><button onclick="appendtodisplay('*')" class="operator-btn">*</button></th>
-                    <th><button onclick="appendtodisplay('1')">1</button></th>
-                    <th><button onclick="appendtodisplay('2')">2</button></th>
-                    <th><button onclick="appendtodisplay('3')">3</button></th>
-                </tr>
-                <tr>
-                    <th><button onclick="appendtodisplay('/')" class="operator-btn">/</button></th>
-                    <th><button onclick="appendtodisplay('.')">.</button></th>
-                    <th><button onclick="appendtodisplay('0')">0</button></th>
-                    <th><button onclick="calc()">=</button></th>
-                </tr>
-                <tr>
-                    <th><button onclick="cleardisplay()" class="operator-btn">C</button></th>
-                </tr>
-            </table>
-         
+    <div class="box"><h1>Calculator</h1>
+        <br>
+         <h2>result:<span id= "result"> </span></h2> 
+        <div class="n1">
+            <form >
+                <input  id="num1" onclick="setfocus('num1')" type="number" placeholder="Enter first number" style="width: 50%; height: 30px;">
+            <br><br>
+                <input  id="num2" onclick="setfocus('num2')"type="number" placeholder="Enter second number" style="width: 50%; height: 30px;">
+            </form>
         </div>
+        <br>
+        <div class="option1">
+            <button onclick="calculator('+')" style="border-radius: 30%; width: 50px; height: 40px;">A+B</button>
+            <button onclick="calculator('-')" style="border-radius: 30%; width: 50px; height: 40px;">A-B</button>
+            <button onclick="calculator('*')" style="border-radius: 30%; width: 50px; height: 40px;">A*B</button>
+            <button onclick="calculator('/')" style="border-radius: 30%; width: 50px; height: 40px;">A/B</button>
+        </div>
+
+        <center>
+        <table>
+        <div class="num">
+            
+            <tr>
+            <th><button onclick="appendnumber('1')" style="border-radius: 50%; width: 50px; height: 40px;">1</button></th>
+            <th><button onclick="appendnumber('2')" style="border-radius: 50%; width: 50px; height: 40px;">2</button> </th>
+            <th> <button onclick="appendnumber('3')" style="border-radius: 50%; width: 50px; height: 40px;">3</button> </th>
+            </tr>
+        <tr>
+            <th><button onclick="appendnumber('4')" style="border-radius: 50%; width: 50px; height: 40px;">4</button> </th>
+            <th> <button onclick="appendnumber('5')" style="border-radius: 50%; width: 50px; height: 40px;">5</button></th>
+            <th>  <button onclick="appendnumber('6')" style="border-radius: 50%; width: 50px; height: 40px;">6</button> </th>
+        </tr>
+        <tr>  
+            <th> <button onclick="appendnumber('7')" style="border-radius: 50%; width: 50px; height: 40px;">7</button>  </th>
+            <th>  <button onclick="appendnumber('8')" style="border-radius: 50%; width: 50px; height: 40px;">8</button></th>
+            <th> <button onclick="appendnumber('9')" style="border-radius: 50%; width: 50px; height: 40px;">9</button> </th>
+        </tr>
+        <tr><th></th>
+            <th> <button onclick="appendnumber('0')"  style="border-radius: 50%; width: 50px; height: 40px;">0</button> </th></tr>
+        </tr>
+        <tr><th></th><th></th>
+            <th><button onclick="cleardisplay()" style="border-radius: 50%; width: 50px; height: 40px;">C</button></th></tr>
+                    
+        </div>
+    </table>
+       </center>
     </div>
     </center>
 
-    <script>
-        function appendtodisplay(input){
-            document.getElementById("display").value+=input;
+     <script>
+        let a="num"
+        function setfocus(inputId){
+         a=inputId //set active input field
         }
-        function cleardisplay(){
-            document.getElementById("display").value="";
+        function appendnumber(number){
+            document.getElementById(a).value +=number
         }
-        function calc(){
-            let expression = document.getElementById("display").value;
-            let parts = expression.split(/([+\-*/])/);
+        function calculator(opr){
+           let num1=parseInt(document.getElementById("num1").value)
+           let num2=parseInt(document.getElementById("num2").value)
+           let result
+           switch(opr){
+            case "+": result=num1+num2; break;
+            case "-": result=num1-num2; break;
+            case "*": result=num1*num2; break;
+            case "/":
+                if(num2!=0){
+                    result=num1/num2
+                }
+                else{
+                    result="Cannot divide by zero"
+                } break;
 
-            let num1 = parseFloat(parts[0]);
-            let opr = parts[1];
-            let num2 = parseFloat(parts[2]);
-
-            let result;
-
-            switch(opr){
-                case "+": result = num1+num2; break;
-                case "*": result = num1*num2; break;
-                case "-": result = num1-num2; break;
-                case "/":
-                    if(num2!=0){
-                        result=num1/num2;
-                    } 
-                    else{
-                        result="Cannot divide by zero";
-                    }
-                    break;
-                default:
-                    result="Error";
-            }
-        document.getElementById("display").value=result;
-        }
-
+           }
+           console.log("result->"+result)
+           
+           document.getElementById("result").innerHTML=result
+           
+        } 
+        
     </script>
+
 </body>
 </html>
-       
-        
